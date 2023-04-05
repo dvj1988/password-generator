@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import classes from "./App.module.css";
 import { ReactComponent as CopySVG } from "./assets/copy.svg";
+import { ReactComponent as RefreshSVG } from "./assets/refresh.svg";
 import clsx from "clsx";
 import {
   generateRandomPassword,
@@ -120,7 +121,16 @@ function App() {
       </div>
       <div className={classes.passwordWrapper}>
         <h4 className={classes.password}>{password}</h4>
-        <CopySVG className={classes.copyImage} onClick={onCopy} />
+        <RefreshSVG
+          className={classes.imageButton}
+          onClick={onGenerate}
+          title="Generate"
+        />
+        <CopySVG
+          className={classes.imageButton}
+          onClick={onCopy}
+          title="Copy"
+        />
       </div>
       <div className={classes.sliderWrapper}>
         <div>

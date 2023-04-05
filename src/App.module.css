@@ -64,13 +64,13 @@
   font-size: 18px;
 }
 
-.copyImage {
+.imageButton {
   height: 20px;
   margin-left: 10px;
   cursor: pointer;
 }
 
-.copyImage:hover {
+.imageButton:hover {
   color: cornflowerblue;
 }
 
