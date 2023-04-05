@@ -56,10 +56,12 @@ export const LOWER_CASE_CHARACTERS = [
 export const UPPER_CASE_CHARACTERS = LOWER_CASE_CHARACTERS.map((character) =>
   character.toUpperCase()
 );
+export const NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
 export const DEFAULT_CONFIG = {
   uppercase: true,
   lowercase: true,
+  numbers: true,
   symbols: [SYMBOLS[0], SYMBOLS[1], SYMBOLS[2], SYMBOLS[3]],
   length: 10,
 };

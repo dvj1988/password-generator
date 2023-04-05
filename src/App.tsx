@@ -84,6 +84,10 @@ function App() {
     setConfig((prev) => ({ ...prev, lowercase: !prev.lowercase }));
   };
 
+  const onToggleNumbers = () => {
+    setConfig((prev) => ({ ...prev, numbers: !prev.numbers }));
+  };
+
   const onSymbolToggle = (symbol: string) => {
     setConfig((prev) => {
       const newSymbols = [...prev.symbols];
@@ -133,6 +137,18 @@ function App() {
           max={20}
           onChange={onChangeLength}
         />
+      </div>
+      <div className={classes.textWrapper}>
+        <input
+          type="checkbox"
+          name="numbers"
+          id="numbers"
+          checked={config.numbers}
+          onChange={onToggleNumbers}
+        />
+        <label htmlFor="numbers" className={classes.inputLabel}>
+          Numbers
+        </label>
       </div>
       <div className={classes.textWrapper}>
         <input

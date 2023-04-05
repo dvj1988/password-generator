@@ -1,16 +1,10 @@
 import {
   DEFAULT_CONFIG,
   LOWER_CASE_CHARACTERS,
-  SYMBOLS,
+  NUMBERS,
   UPPER_CASE_CHARACTERS,
 } from "../constants";
-
-type ConfigType = {
-  uppercase: boolean;
-  lowercase: boolean;
-  symbols: string[];
-  length: number;
-};
+import { ConfigType } from "../types";
 
 export const saveConfigToLocalStorage = (config: ConfigType) => {
   localStorage.setItem("config", JSON.stringify(config));
@@ -40,12 +34,8 @@ export const generateRandomPassword = ({
   lowercase,
   symbols,
   length,
-}: {
-  uppercase: boolean;
-  lowercase: boolean;
-  symbols: string[];
-  length: number;
-}) => {
+  numbers,
+}: ConfigType) => {
   const inputCharacterArrays = [];
   if (lowercase) {
     inputCharacterArrays.push(LOWER_CASE_CHARACTERS);
@@ -57,6 +47,10 @@ export const generateRandomPassword = ({
 
   if (symbols.length) {
     inputCharacterArrays.push(symbols);
+  }
+
+  if (numbers) {
+    inputCharacterArrays.push(NUMBERS);
   }
 
   if (inputCharacterArrays.length === 0) {
