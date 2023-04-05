@@ -1,0 +1,123 @@
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.inputLabel {
+  user-select: none;
+}
+
+.button {
+  border: 1px solid black;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: cornflowerblue;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 200px;
+}
+
+.buttonWrapper {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.textWrapper {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.sliderWrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sliderWrapper input {
+  width: 200px;
+  margin-top: 10px;
+}
+
+.sliderWrapper input:focus {
+  outline: none;
+}
+
+.passwordWrapper {
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.password {
+  border: 1px solid #bdc3c7;
+  width: max-content;
+  padding: 5px;
+  min-width: 220px;
+  background: #ecf0f1;
+  font-size: 18px;
+}
+
+.copyImage {
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.copyImage:hover {
+  color: cornflowerblue;
+}
+
+.symbolsWrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.symbol {
+  border: 1px solid #95a5a6;
+  padding: 5px;
+  border-radius: 10px;
+  width: 20px;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.symbol:hover {
+  border-color: #27ae60;
+  color: #2ecc71;
+}
+
+.symbol.selected {
+  background: #2ecc71;
+  border-color: #27ae60;
+  color: #34495e;
+}
+
+.pre {
+  text-align: center;
+}
+
+.toast {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #2ecc71;
+  border: 1px solid #27ae60;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.symbolSection {
+  text-align: center;
+  margin-top: 20px;
+}
