@@ -44,7 +44,7 @@ jobs:
         run: yarn
         working-directory: ${{ env.BUILD_PATH }}
       - name: Build with Vite
-        run: yarn build
+        run: yarn build --base "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.BUILD_PATH }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
