@@ -10,7 +10,24 @@ import {
 } from "./utils";
 import { SYMBOLS } from "./constants";
 
-const Toast = ({ visible, hide }: { visible: boolean; hide: () => void }) => {
+type TToastVariant = "success" | "error";
+type TToastConfig = {
+  variant: TToastVariant;
+  message: string;
+  show: boolean;
+};
+
+const Toast = ({
+  visible,
+  hide,
+  message,
+  variant = "success",
+}: {
+  visible: boolean;
+  hide: () => void;
+  variant: TToastVariant;
+  message: string;
+}) => {
   const interval = useRef<number>();
 
   useEffect(() => {
@@ -33,7 +50,16 @@ const Toast = ({ visible, hide }: { visible: boolean; hide: () => void }) => {
     return null;
   }
 
-  return <div className={classes.toast}>Copied to clipboard!</div>;
+  return (
+    <div
+      className={clsx(classes.toast, {
+        [classes.error]: variant === "error",
+        [classes.success]: variant === "success",
+      })}
+    >
+      {message}
+    </div>
+  );
 };
 
 const SymbolButton = ({
@@ -59,12 +85,25 @@ const SymbolButton = ({
 
 function App() {
   const [config, setConfig] = useState(getConfigFromLocalStorage());
-  const [password, setPassword] = useState(generateRandomPassword(config));
-  const [showToast, setShowToast] = useState(false);
+  const [password, setPassword] = useState("");
+  const [toastConfig, setToastConfig] = useState<TToastConfig>({
+    variant: "success",
+    message: "",
+    show: false,
+  });
 
   const onGenerate = useCallback(() => {
-    const newPassword = generateRandomPassword(config);
-    setPassword(newPassword);
+    try {
+      const newPassword = generateRandomPassword(config);
+      setPassword(newPassword);
+    } catch {
+      setToastConfig({
+        variant: "error",
+        message: "Please select atleast one type of character",
+        show: true,
+      });
+      setPassword("");
+    }
   }, [setPassword, config]);
 
   useEffect(() => {
@@ -74,7 +113,11 @@ function App() {
 
   const onCopy = () => {
     navigator.clipboard.writeText(password);
-    setShowToast(true);
+    setToastConfig({
+      variant: "success",
+      message: "Copied to clipboard",
+      show: true,
+    });
   };
 
   const onToggleUppercase = () => {
@@ -111,7 +154,11 @@ function App() {
   };
 
   const onHideToast = () => {
-    setShowToast(false);
+    setToastConfig({
+      variant: "success",
+      message: "",
+      show: false,
+    });
   };
 
   return (
@@ -196,7 +243,12 @@ function App() {
           ))}
         </div>
       </div>
-      <Toast visible={showToast} hide={onHideToast} />
+      <Toast
+        visible={toastConfig.show}
+        hide={onHideToast}
+        message={toastConfig.message}
+        variant={toastConfig.variant}
+      />
     </div>
   );
 }

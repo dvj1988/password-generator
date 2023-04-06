@@ -18,7 +18,7 @@
 }
 
 .container {
-  width: 400px;
+  max-width: 400px;
   margin: 0 auto;
   padding-top: 200px;
 }
@@ -62,6 +62,7 @@
   min-width: 220px;
   background: #ecf0f1;
   font-size: 18px;
+  min-height: 30px;
 }
 
 .imageButton {
@@ -85,7 +86,7 @@
   border: 1px solid #95a5a6;
   padding: 5px;
   border-radius: 10px;
-  width: 20px;
+  width: 28px;
   cursor: pointer;
   margin-right: 5px;
   margin-bottom: 5px;
@@ -110,8 +111,6 @@
   position: fixed;
   top: 10px;
   right: 10px;
-  background: #2ecc71;
-  border: 1px solid #27ae60;
   padding: 10px;
   border-radius: 10px;
   color: white;
@@ -120,4 +119,14 @@
 .symbolSection {
   text-align: center;
   margin-top: 20px;
+}
+
+.toast.success {
+  background: #2ecc71;
+  border: 1px solid #27ae60;
+}
+
+.toast.error {
+  background: red;
+  border: 1px solid red;
 }

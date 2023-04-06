@@ -132,3 +132,7 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #34495e;
 }
+
+* {
+  box-sizing: border-box;
+}
