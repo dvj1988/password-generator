@@ -164,7 +164,7 @@ function App() {
   return (
     <div className={classes.container}>
       <div className={classes.textWrapper}>
-        <h2 className={classes.title}>Random Password Generator</h2>
+        <h2 className={classes.title}>Generate Strong Passwords</h2>
       </div>
       <div className={classes.passwordWrapper}>
         <h4 className={classes.password}>{password}</h4>

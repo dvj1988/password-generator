@@ -1,3 +1,8 @@
+.container {
+  margin: 0 30px;
+  padding-top: 200px;
+}
+
 .title {
   font-size: 24px;
   font-weight: 700;
@@ -15,12 +20,6 @@
 
 .button:hover {
   background: cornflowerblue;
-}
-
-.container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding-top: 200px;
 }
 
 .buttonWrapper {
@@ -76,10 +75,11 @@
 }
 
 .symbolsWrapper {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 300px;
+  margin: 20px auto;
 }
 
 .symbol {
